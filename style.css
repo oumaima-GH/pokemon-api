@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgba(246, 189, 32, 0.737);
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.pokemon {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+}
+
+.card{
+    height: 300px;
+    width: 240px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.421);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.289);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin: 8px;
+    padding: 10px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+    color: #8c5111;
+    font-size: 1.1rem; 
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: auto;
+    border-radius: 8px;
+    
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow:  0 4px 8px #9C5100;
+    cursor: pointer;
+}
+
+.type{
+    display: flex;
+    justify-content: center;
+    height: 260px;
+    
+    align-items: center;
+    font-weight: 800;
+    color: #000;
+    font-size: .9rem; 
+}
+
+.type-name{
+    background: rgba(246, 189, 32, 0.737);
+    padding: 4px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.numero{
+    display: flex;
+    justify-content: center;
+    color: rgb(129, 107, 41);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
