@@ -8,10 +8,12 @@ const fetchData = async (url) => {
 
     let pokemons = data.results
 
+    const pokePromise = pokemons.map(pokemon => fetch(pokemon.url).then(res => res.json()))
+    const pokemonArray = await Promise.all(pokePromise)
 
-    for (let pokemon of pokemons) {
-        const pokemonRes = await fetch(pokemon.url)
-        const pokemonData = await pokemonRes.json()
+    for (let i = 0; i < pokemons.length; i++) {
+        const pokemon = pokemons[i]
+        const pokemonData = pokemonArray[i]
 
         const numberPokemon = pokemon.url.split("/").slice(-2,-1)[0]
         const imageFront = pokemonData.sprites.front_default
@@ -34,9 +36,10 @@ const fetchData = async (url) => {
     }
 }
 
-    const loadMoreData = async () => {
+
+    const loadMoreData = () => {
         offset += 20
-        await fetchData(url, offset)
+        fetchData(url, offset)
     }
 
 
@@ -47,7 +50,7 @@ const fetchData = async (url) => {
 
     // const loadMore = document.createElement('button')
     // loadMore.innerText = 'Load more...'
-    const loadMore = document.querySelector('button')
+    const loadMore = document.querySelector('.load-btn')
 
     loadMore.addEventListener('click', loadMoreData)
 
@@ -66,17 +69,20 @@ const search = document.querySelector('input')
 
 
 search.addEventListener('input', () => {
-    const pokemonCards = document.querySelectorAll('.card')
+    setTimeout(()=> {
+        const pokemonCards = document.querySelectorAll('.card')
 
-    const searchByName = search.value.toLowerCase()
-
-    for (const card of pokemonCards) {
-        const pokemonName = card.querySelector('h1').textContent.toLowerCase()
-
-        if (pokemonName.includes(searchByName)) {
-            card.classList.remove('hidden')
-        } else {
-            card.classList.add('hidden')
+        const searchByName = search.value.trim().toLowerCase()
+    
+        for (const card of pokemonCards) {
+            const pokemonName = card.querySelector('h1').innerText.toLowerCase()
+    
+            if (pokemonName.includes(searchByName)) {
+                card.classList.remove('hidden')
+            } else {
+                card.classList.add('hidden')
+            }
         }
-    }
-});
+    }, 1200)
+   
+})

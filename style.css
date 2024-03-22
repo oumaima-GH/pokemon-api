@@ -5,43 +5,44 @@
 }
 
 body{
-    background: rgba(246, 189, 32, 0.737);
+    background: rgba(3, 32, 25, 0.912);
     font-family: Georgia, 'Times New Roman', Times, serif; 
     margin: 50px;
 }
 
 .pokemon {
     margin: 50px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted column width */
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
 
 .card {
+    
     height: 300px;
-    width: 100%; /* Adjusted width */
+    width: 310px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.421);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.289);
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
     cursor: pointer;
     padding: 10px;
 }
 
 h1{
-    display: flex;
-    justify-content: center;
+    text-align: center;
     font-weight: 800;
-    color: #7d460a;
+    color: #083a2e;
     font-size: 1.1rem; 
+    margin-bottom: 12px;
 }
 
 img{
     display: block;
     margin: 0 auto;
-    width: 40%;
+    width: 50%;
     height: auto;
     border-radius: 8px;
     
@@ -50,14 +51,14 @@ img{
 
 .card:hover{
     transform: scale(1.05);
-    box-shadow:  0 4px 8px #9C5100;
+    box-shadow:  0 4px 8px #107b6a;
     cursor: pointer;
 }
 
 .type{
     display: flex;
     justify-content: center;
-    height: 260px;
+    height: 100px;
     
     align-items: center;
     font-weight: 800;
@@ -66,34 +67,35 @@ img{
 }
 
 .type-name{
-    background: rgba(246, 189, 32, 0.737);
+    background: #83de7b;
     padding: 4px;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 
 .numero{
     display: flex;
     justify-content: center;
-    color: rgb(129, 107, 41);
+    color: #0a5d4f;
     font-size: 15px;
     margin-bottom: 10px;
 }
+
 
 .button-container{
     position: relative;
     height: 40px;
 }
 
-button{
+.load-btn{
     position: absolute; 
     bottom: 0; 
-    left: 50%; 
+    left: 46%; 
     padding: 12px;
     font-size: 15px;
     cursor: pointer;
     border: none;
-    background: #9C5100;
+    background: #de4141;
     color: #fff;
     border-radius: 4px;
     font-weight: 500;
@@ -101,7 +103,7 @@ button{
     transition: transform 0.3s ease;
 }
 
-button:hover{
+.load-btn:hover{
     transform: scale(1.05); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.289); 
 }
@@ -138,3 +140,9 @@ button:hover{
 .hidden {
     display: none;
 }
+
+.logo{
+    width: 25%;
+    margin-bottom: 30px;
+}
+
